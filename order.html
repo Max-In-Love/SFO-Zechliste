@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Bestellung</title>
+</head>
+<body>
+    <h2>Wähle dein Getränk</h2>
+    <form action="/order" method="POST">
+        <select name="drink">
+            {% for drink in drinks %}
+            <option value="{{ drink }}">{{ drink }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Bestellen</button>
+    </form>
+    <a href="/summary">Zur Übersicht</a>
+</body>
+</html>
