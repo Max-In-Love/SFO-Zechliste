@@ -1,0 +1,12 @@
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://username:password@localhost/dbname'
+db = SQLAlchemy(app)
+
+# Deine Modelldefinitionen hier
+
+# Der Anwendungskontext muss explizit gesetzt werden, wenn du außerhalb des Request-Kontexts arbeitest.
+with app.app_context():
+    db.create_all()  # Erstellt die Tabellen, wenn sie nicht existieren
