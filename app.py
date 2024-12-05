@@ -8,6 +8,11 @@ app.config['SECRET_KEY'] = 'secret_key'  # Ein geheimer Schlüssel für die Sess
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///members.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+if __name__ == "__main__":
+    # Hole den PORT aus der Umgebungsvariable, falls gesetzt, oder benutze 5000 als Standardport
+    port = int(os.environ.get("PORT", 5000))  
+    app.run(host="0.0.0.0", port=port)
+    
 db = SQLAlchemy(app)
 
 # Datenbankmodell für Benutzer und Bestellungen
@@ -99,7 +104,3 @@ if __name__ == "__main__":
         db.create_all()  # Erstellt die Tabellen bei jedem Start, wenn sie nicht existieren.
     app.run(debug=True)
 
-if __name__ == "__main__":
-    # Hole den PORT aus der Umgebungsvariable, falls gesetzt, oder benutze 5000 als Standardport
-    port = int(os.environ.get("PORT", 5000))  
-    app.run(host="0.0.0.0", port=port)
