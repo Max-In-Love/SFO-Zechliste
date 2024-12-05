@@ -94,6 +94,8 @@ def logout():
     session.pop('user_id', None)
     return redirect(url_for('home'))
 
-if __name__ == '__main__':
-    db.create_all()  # Erstellt die Tabellen, wenn sie nicht existieren
+if __name__ == "__main__":
+    with app.app_context():
+        db.create_all()  # Erstellt die Tabellen bei jedem Start, wenn sie nicht existieren.
     app.run(debug=True)
+
