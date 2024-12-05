@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Administrator</title>
+</head>
+<body>
+    <h2>Administrator Dashboard</h2>
+    <form action="/admin" method="POST">
+        <label for="paid_amount">Betrag bezahlt (Barzahlung):</label>
+        <input type="number" name="paid_amount" step="0.01" required>
+        <button type="submit">Zahlung abwickeln</button>
+    </form>
+    <h3>Alle Mitglieder</h3>
+    <ul>
+        {% for member in members %}
+        <li>{{ member.username }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
