@@ -32,7 +32,7 @@ class Order(db.Model):
     member = db.relationship('Member', backref=db.backref('orders', lazy=True))
 
 # Startseite
-@app.route('/')
+@app.route('/', methods=['GET','POST'])
 def home():
     return render_template('index.html')
 
