@@ -99,3 +99,7 @@ if __name__ == "__main__":
         db.create_all()  # Erstellt die Tabellen bei jedem Start, wenn sie nicht existieren.
     app.run(debug=True)
 
+if __name__ == "__main__":
+    # Hole den PORT aus der Umgebungsvariable, falls gesetzt, oder benutze 5000 als Standardport
+    port = int(os.environ.get("PORT", 5000))  
+    app.run(host="0.0.0.0", port=port)
