@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Bestellübersicht</title>
+</head>
+<body>
+    <h2>Deine Bestellungen</h2>
+    <ul>
+        {% for order in orders %}
+        <li>{{ order.drink }} - {{ order.price }} €</li>
+        {% endfor %}
+    </ul>
+    <h3>Gesamtbetrag: {{ total_amount }} €</h3>
+    <a href="/order">Neue Bestellung</a>
+    <a href="/logout">Abmelden</a>
+</body>
+</html>
